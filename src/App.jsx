@@ -1,9 +1,17 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Body from "./components/Body";
+import Login from "./components/Login";
 
 function App() {
   return (
-   <Navbar/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Body />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

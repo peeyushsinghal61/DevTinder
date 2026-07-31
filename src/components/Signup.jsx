@@ -1,29 +1,10 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
-import { Base_Url } from "../utils/constants";
-const Login = () => {
+import { useState } from "react";
+
+const Signup = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  async function handleLogin() {
-    try {
-      const res = await axios.post(
-        `${Base_Url}login`,
-        { emailId, password },
-        { withCredentials: true },
-      );
-      console.log("Login successful:", res.data);
-      dispatch(addUser(res.data));
-      navigate("/");
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
-  }
-
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="card card-border bg-base-300 w-96  ">
@@ -31,11 +12,20 @@ const Login = () => {
           <h2 className="card-title justify-center">Login</h2>
           <label className="input">
             <input
-              type="email"
+              type="text"
               className="grow"
-              placeholder="Email"
-              value={emailId}
-              onChange={(e) => setEmailId(e.target.value)}
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </label>
+          <label className="input">
+            <input
+              type="text"
+              className="grow"
+              placeholder="Last Name    "
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </label>
           <label className="input">
@@ -58,4 +48,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

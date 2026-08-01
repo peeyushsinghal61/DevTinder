@@ -17,7 +17,9 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">DevTinder</Link>
+        <Link to="/" className="btn btn-ghost text-xl">
+          DevTinder
+        </Link>
       </div>
       <div className="flex gap-2">
         <div className="dropdown dropdown-end flex items-center gap-2 flex items-center gap-2">
@@ -29,10 +31,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user?.photoUrl}
-                />
+                <img alt="Tailwind CSS Navbar component" src={user?.photoUrl} />
               </div>
             </div>
           )}
@@ -48,6 +47,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/my-connections">My Connections</Link>
+            </li>
+            <li>
+              <Link to="/request-received">My requests</Link>
             </li>
             <li>
               <Link to="/login" onClick={handleLogout}>

@@ -20,7 +20,7 @@ const Body = () => {
       if (err.status === 401) {
         navigate("/login");
       }
-      console.log("somthig went wrong");
+      console.log("something went wrong");
     }
   };
   useEffect(() => {

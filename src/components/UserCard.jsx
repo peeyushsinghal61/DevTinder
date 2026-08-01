@@ -4,10 +4,15 @@ const UserCard = ({ user }) => {
   const location = useLocation();
 
   return (
-    <div className="card bg-base-300 w-96 shadow-sm">
+    <div className="card bg-base-300 w-72 shadow-sm">
       <figure>
         {user?.photoUrl && (
-          <img src={user.photoUrl} alt={user?.firstName} />
+          <img
+            src={user.photoUrl}
+            alt={user?.firstName}
+            width="200px"
+            height="200px"
+          />
         )}
       </figure>
       <div className="card-body">

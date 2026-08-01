@@ -21,7 +21,7 @@ const RequestRecieved = () => {
   }
   async function reviewRequest(status, requestId) {
     try {
-        let responseStatus=await axios.post(Base_Url+`/review/${status}/${requestId}`,{} ,{withCredentials:true,params:{status,requestId}})
+        let responseStatus=await axios.post(Base_Url+`/review/${status}/${requestId}`,{} ,{withCredentials:true})
         console.log("review request response",responseStatus)
         dispatch(removeRecievedRequests(requestId));
     } catch (error) {

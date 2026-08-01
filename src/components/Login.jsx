@@ -7,7 +7,7 @@ import { Base_Url } from "../utils/constant";
 const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,10 +53,16 @@ const Login = () => {
             />
           </label>
           <p className="text-red-500 text-sm">{error}</p>
-          <div className="card-actions justify-center">
+       <div className="flex card-actions justify-center items-center gap-16">
             <button className="btn btn-primary" onClick={handleLogin}>
-              Login
+              login
             </button>
+            <div className="flex items-center">
+              <p>new user?</p>
+              <button className="btn btn-primary ml-2" onClick={()=>{navigate("/signup")}}>
+                Signup
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -24,9 +24,16 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+
+  if (!feed || feed.length === 0) {
+    return (
+      <h2 className="flex items-center justify-center mt-20">No users found</h2>
+    );
+  }
+
   return (
-    <div>
-      {feed && feed.map((user) => <UserCard key={user.id} user={user} />)}
+    <div className="flex flex-wrap items-center justify-center my-4">
+      {feed &&<UserCard key={feed[0]._id} user={feed[0]} />}
     </div>
   );
 };

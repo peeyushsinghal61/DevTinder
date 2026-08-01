@@ -15,23 +15,25 @@ const Body = () => {
       let res = await axios.get(Base_Url + "/profile/view", {
         withCredentials: true,
       });
-      console.log(res);
       dispatch(addUser(res.data));
     } catch (err) {
-      if(err.status === 401) {
-      navigate("/login");}
+      if (err.status === 401) {
+        navigate("/login");
+      }
       console.log("somthig went wrong");
     }
   };
   useEffect(() => {
-    if(!user) {
+    if (!user) {
       fetchData();
     }
   }, []);
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
